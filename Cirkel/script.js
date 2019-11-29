@@ -14,17 +14,25 @@ canvas.height = height;
 function drawcircle(){
     let x = getRandomNumber(width);
     let y = getRandomNumber(height);
+    var minRadius = 25;
     context.beginPath();
     context.lineWidth = "5";
-    context.fillStyle = "rgba(10,200,40,0.8)";
-    context.arc(x,y,10,0,Math.PI*2);
+    context.fillStyle = colors[getRandomNumber(colors.length)];
+    context.arc(x,y,minRadius * Math.random(),0,Math.PI*2);
     context.closePath();
     context.stroke();
     context.fill();
-    setInterval(animate,100);
 }
 
-for (let i = 0; i<100; i++) {
+let colors = ["red", "blue", "green"];
+
+function animate(){
+    drawcircle();
+}
+
+setInterval(animate, 1)
+
+for (let i = 0; i<0; i++) {
     drawcircle();
 }
 
